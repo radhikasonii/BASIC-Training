@@ -1,0 +1,59 @@
+// Problem 1: Complete the secondLargest function which takes in an array of numbers in input and return the second biggest number in the array. (without using sort)?
+function secondLargest(array) {
+  // Write your code herefunction secondLargest(array) {
+
+  var max = 0;
+  sec = 0;
+  for (i = 0; i < array.length; i++) {
+    if (max < array[i]) {
+      sec = max; // sec=0 and max=4
+      // sec=4 and max =7
+      max = array[i];
+
+      //sec=54 and max=89
+      // array[i]=
+    } else if (sec < array[i] && sec < max) {
+      sec = array[i];
+    }
+  }
+  return sec;
+}
+
+// Problem 2: Complete the calculateFrequency function that takes lowercase string as input and returns frequency of all english alphabet. (using only array, no in-built function)
+function calculateFrequency(string) {
+  // Write your code herefunction
+  // Write your code here
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  var freq = new Array(26).fill(0);
+
+  for (i = 0; i < string.length; i++) {
+    var index = alphabet.indexOf(string[i]);
+
+    if (index != -1) {
+      freq[index]++;
+    }
+  }
+  // console.log(freq)
+
+  return freq;
+}
+
+// Problem 3: Complete the flatten function that takes a JS Object, returns a JS Object in flatten format (compressed)
+unflatObject = {
+  name: "radhika",
+  lastname: "soni",
+  address: { city: "indore", state: "mp" },
+};
+newobject = {};
+function flatten(unflatObject) {
+  for (keys in unflatObject) {
+    if (typeof unflatObject[keys] == "object") {
+      flatten(unflatObject[keys]);
+    } else {
+      newobject[keys] = unflatObject[keys];
+    }
+  }
+}
+flatten(unflatObject);
+console.log(newobject);
